@@ -63,39 +63,15 @@ with open(csvpath) as csvfile:
 
     
     # Store the file path associated with the file (note the backslash may be OS specific)
-    file = '../analysis/pybank.txt'
+    file = open('analysis/pybank.txt', "w")
+    file.write("Financial Analysis\n")
+    file.write("----------------------------\n")
+    file.write("Total Months: " + str(total_month) + "\n")
+    file.write("Total: $" + str(net_total) + "\n")
+    file.write("Average Change: $" + str(round(average_monthly_change,2)) + "\n")
+    file.write("Greatest Increase in Profits: " + str(greatest_increase_mon) + " ($" + str(greatest_increase) + ")\n")
+    file.write("Greatest Decrease in Profits: " + str(greatest_decrease_mon) +  " ($" + str(greatest_decrease) + ")\n")
+    file.close()
 
-# Open the file in "read" mode ('r') and store the contents in the variable "text"
-    with open(file, 'r') as text:
 
-    # This stores a reference to a file stream
-        print(text)
-
-    # Store all of the text inside a variable called "lines"
-        lines = text.read()
-
-    # Print the contents of the text file
-        print(lines)
-    
-    # Specify the file to write to
-    ''' output_path = os.path.join("analysis", "pybank_analysis.txt")
-
-    # Open the file using "write" mode. Specify the variable to hold the contents
-     with open(output_path, 'w') as txtfile:
-        # Initialize csv.writer
-        pybank_analysis.txt = txtfile.writer(csvfile, delimiter=" ")
-
-        # Write the header row (column headers)
-        csvwriter.writerow('Financial Analysis')
-        csvwriter.writerow("----------------------------")
-
-        csvwriter.writerow("Total Months: " + str(total_month))
-        csvwriter.writerow("Total: $" + str(net_total))
-        csvwriter.writerow("Average Change: $" + str(round(average_monthly_change,2)))
-        csvwriter.writerow("Greatest Increase in Profits: " + str(greatest_increase_mon) + " ($" + str(greatest_increase) + ")")
-        csvwriter.writerow("Greatest Decrease in Profits: " + str(greatest_decrease_mon) +  " ($" + str(greatest_decrease) + ")")
    
-        #print("this is bank row " + row[0] + ",|" + row[1])
-        # for greatest_increase, first time net_change
-       '''
-
