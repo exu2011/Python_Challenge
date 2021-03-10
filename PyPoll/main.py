@@ -30,11 +30,12 @@ for name in votes:
     file = open('analysis/pypoll.txt', "w")
     file.write("Election Analysis\n")
     file.write("----------------------------\n")
-    file.write("Total Votes: " + str(total_month) + "\n")
+    file.write("Total Votes: " + str(total_votes) + "\n")
     file.write("----------------------------\n")
-    file.write(f"{name}: {votes[name]}" "\n")
-    file.write("Average Change: $" + str(round(average_monthly_change,2)) + "\n")
-    file.write("Greatest Increase in Profits: " + str(greatest_increase_mon) + " ($" + str(greatest_increase) + ")\n")
-    file.write("Greatest Decrease in Profits: " + str(greatest_decrease_mon) +  " ($" + str(greatest_decrease) + ")\n")
+    for name in votes:
+        percent_total = votes[name]/total_votes
+        percentages = "{:.3%}".format(percent_total)
+        file.write(name + ": " + str(percentages) + "("  + str(votes[name]) + ")\n")
+        
     file.close()
 
